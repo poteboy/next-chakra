@@ -1,5 +1,6 @@
 import type { ComponentStyleConfig } from '@chakra-ui/theme'
 import { extendTheme, ButtonProps } from '@chakra-ui/react'
+import { colors } from './colors'
 
 const Text: ComponentStyleConfig = {
     baseStyle: {
@@ -13,10 +14,15 @@ const Text: ComponentStyleConfig = {
 const Button: ComponentStyleConfig = {
   variants: {
     solid: (props) => ({
-      bg: props.disabled ? 'red.300' : 'tomato',
+      color: colors.White,
+      bg: props.disabled ? colors.Disabled : colors.Primary.Main,
+      // boxShadow: `0 1px 7px ${colors.Primary.Main_RGB}`,
       _focus: {
-        boxShadow: 'none'
-      }
+        boxShadow: 'none',
+      },
+      _hover: {
+        bg: colors.Primary.Main_Hover
+      },
     })
   }
 }
@@ -26,5 +32,11 @@ export const theme = extendTheme({
     components: {
       Text,
       Button
+    },
+    breakpoints: {
+      sm: "320px",
+      md: "768px",
+      lg: "960px",
+      xl: "1200px",
     },
   })
