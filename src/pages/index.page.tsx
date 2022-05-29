@@ -1,10 +1,27 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { HomeScreen } from '../screens/Home';
+import React, { FC, memo } from 'react';
+import { VStack, Text, Button } from '@chakra-ui/react';
+import { colors } from '@src/styles';
+import { Header } from '@src/components';
 
-const Home: NextPage = () => {
-  return <HomeScreen />;
+const Root: NextPage = () => {
+  return <RootScreen />;
 };
 
-export default Home;
+type Props = {};
+
+const RootScreen: FC<Props> = memo(() => {
+  return (
+    <>
+      <Header />
+      <VStack bg={colors.BackGround} height="100vh" justifyContent="center">
+        <Text>hello</Text>
+        <Button>hello</Button>
+      </VStack>
+    </>
+  );
+});
+
+export default Root;
